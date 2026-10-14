@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Student Management System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="container">
+    <header>
+      <p class="eyebrow">THREE-TIER CLOUD APPLICATION</p>
+      <h1>Student Management</h1>
+      <p class="subtitle">Create, search, update and delete student records.</p>
+      <p id="status" class="status">Connecting to API…</p>
+    </header>
+
+    <section class="panel">
+      <h2 id="form-title">Add a student</h2>
+      <form id="student-form">
+        <input type="hidden" id="student-id">
+        <div class="form-grid">
+          <label>Full name<input id="name" required maxlength="100" placeholder="e.g. Aarya Sharma"></label>
+          <label>Email<input id="email" type="email" required maxlength="150" placeholder="student@example.com"></label>
+          <label>Course<input id="course" required maxlength="100" placeholder="e.g. Computer Engineering"></label>
+          <label>Year
+            <select id="year" required>
+              <option value="">Choose year</option>
+              <option value="1">1st year</option>
+              <option value="2">2nd year</option>
+              <option value="3">3rd year</option>
+              <option value="4">4th year</option>
+              <option value="5">5th year</option>
+              <option value="6">6th year</option>
+              <option value="7">7th year</option>
+              <option value="8">8th year</option>
+            </select>
+          </label>
+        </div>
+        <div class="actions">
+          <button type="submit" id="save-button">Add student</button>
+          <button type="button" id="cancel-button" class="secondary hidden">Cancel edit</button>
+        </div>
+      </form>
+      <p id="message" class="message" role="status"></p>
+    </section>
+
+    <section class="panel">
+      <div class="list-heading">
+        <div><h2>Student records</h2><p class="muted">Records are stored in MongoDB Atlas.</p></div>
+        <input id="search" class="search" placeholder="Search name, email or course">
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>Name</th><th>Email</th><th>Course</th><th>Year</th><th>Actions</th></tr></thead>
+          <tbody id="students"><tr><td colspan="5" class="empty">Loading records…</td></tr></tbody>
+        </table>
+      </div>
+    </section>
+    <footer>Frontend: Netlify · REST API: Render · Database: MongoDB Atlas</footer>
+  </main>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
